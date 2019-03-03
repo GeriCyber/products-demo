@@ -27,7 +27,6 @@ export class InfoPageService {
   private cargarEquipo() {
     this.http.get('https://portfolio-demo-d7899.firebaseio.com/equipo.json').subscribe((data: InfoTeam[]) => {
       this.team = data;
-      console.log(this.team);
     });
   }
 }

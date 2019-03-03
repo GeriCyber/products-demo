@@ -9,7 +9,6 @@ import { InfoPageService } from 'src/app/services/info-page.service';
 export class AboutComponent implements OnInit {
 
   constructor(public teamService: InfoPageService) {
-    console.log(this.teamService);
   }
 
   ngOnInit() {

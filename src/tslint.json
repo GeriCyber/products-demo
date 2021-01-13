@@ -1,17 +1,130 @@
 {
-    "extends": "../tslint.json",
+    "extends": ["tslint:recommended"],
+    "rulesDirectory": [
+        "node_modules/codelyzer",
+        "node_modules/tslint-origin-ordered-imports-rule/dist",
+        "node_modules/tslint-consistent-codestyle/rules",
+        "node_modules/tslint-rxjs-subject-restrictions-rule/dist"
+    ],
     "rules": {
-        "directive-selector": [
+        "rx-subject-restrictions": true,
+        "no-unused": true,
+        "no-return-undefined": true,
+        "no-unnecessary-else": true,
+        "no-collapsible-if": true,
+        "arrow-return-shorthand": true,
+        "callable-types": true,
+        "arrow-parens": true,
+        "prefer-for-of": true,
+        "comment-format": [true, "check-space"],
+        "curly": true,
+        "eofline": true,
+        "forin": true,
+        "import-blacklist": [true],
+        "import-spacing": true,
+        "import-destructuring-spacing": true,
+        "indent": [true, "spaces", 4],
+        "interface-over-type-literal": true,
+        "interface-name": false,
+        "label-position": true,
+        "origin-ordered-imports": true,
+        "max-line-length": [false, 160],
+        "trailing-comma": true,
+        "member-access": [true, "no-public"],
+        "member-ordering": [
             true,
-            "attribute",
-            "app",
-            "camelCase"
+            {
+                "order": [
+                    "public-instance-field",
+                    "protected-instance-field",
+                    "private-instance-field",
+                    "public-constructor",
+                    "public-instance-method",
+                    "protected-instance-method",
+                    "private-instance-method"
+                ]
+            }
         ],
-        "component-selector": [
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-consecutive-blank-lines": true,
+        "no-console": [
             true,
-            "element",
-            "app",
-            "kebab-case"
+            "log",
+            "dir",
+            "debug",
+            "time",
+            "timeEnd",
+            "trace",
+            "info"
+        ],
+        "no-construct": true,
+        "no-debugger": true,
+        "no-duplicate-super": true,
+        "no-empty": false,
+        "no-empty-interface": true,
+        "no-eval": true,
+        "no-inferrable-types": [false, "ignore-params"],
+        "no-misused-new": true,
+        "no-non-null-assertion": true,
+        "no-shadowed-variable": true,
+        "no-string-literal": false,
+        "no-string-throw": true,
+        "no-switch-case-fall-through": true,
+        "switch-default": true,
+        "no-trailing-whitespace": false,
+        "no-unnecessary-initializer": true,
+        "no-unused-expression": true,
+        "no-var-keyword": true,
+        "object-literal-sort-keys": false,
+        "one-line": [
+            true,
+            "check-open-brace",
+            "check-catch",
+            "check-else",
+            "check-whitespace"
+        ],
+        "prefer-const": true,
+        "quotemark": [true, "single"],
+        "radix": true,
+        "semicolon": [true, "always", "strict-bound-class-methods"],
+        "triple-equals": [true],
+        "typedef-whitespace": [
+            true,
+            {
+                "call-signature": "nospace",
+                "index-signature": "nospace",
+                "parameter": "nospace",
+                "property-declaration": "nospace",
+                "variable-declaration": "nospace"
+            }
+        ],
+        "unified-signatures": true,
+        "variable-name": false,
+        "whitespace": [
+            true,
+            "check-branch",
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-type",
+            "check-module"
+        ],
+        "directive-selector": [true, "attribute", "app", "camelCase"],
+        "component-selector": [true, "element", "app", "kebab-case"],
+        "no-input-rename": true,
+        "no-output-rename": true,
+        "use-life-cycle-interface": true,
+        "use-pipe-transform-interface": true,
+        "component-class-suffix": true,
+        "max-classes-per-file": [true, 5, "exclude-class-expressions"],
+        "directive-class-suffix": true,
+        "no-forward-ref": true,
+        "no-import-side-effect": [
+            true,
+            {
+                "ignore-module": "(core-js/.*|zone\\.js/.*|@angular/localize/init)$"
+            }
         ]
     }
 }

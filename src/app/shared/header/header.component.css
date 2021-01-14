@@ -1,0 +1,7 @@
+.pointer {
+    cursor: pointer;
+}
+
+a:hover {
+    color: #202020 !important;
+}

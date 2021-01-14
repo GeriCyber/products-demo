@@ -1,0 +1,26 @@
+<section
+  class="ae-container-fluid rk-main animated fadeIn">
+  <div class="login-page">
+    <div class="form">
+     <form
+        class="login-form"
+        (ngSubmit)="onSubmit()">
+        <input
+          [formControl]="userControl"
+          type="text"
+          placeholder="Usuario" />
+        <input
+          [formControl]="passwordControl"
+          type="password"
+          placeholder="Contraseña" />
+        <button
+          type="button"
+          [disabled]="attempt"
+          (click)="onSubmit()"><span
+          *ngIf="!attempt; else loading">Iniciar Sesión</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<ng-template #loading>Iniciando Sesión...</ng-template>

@@ -1,27 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { InfoPage } from '../../interfaces/info-page.interface';
-import { InfoPageService } from '../../services/info-page.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../auth/services/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+    isAuth: boolean = null;
+    private _subscription: Subscription = new Subscription();
 
-  constructor(public infoService: InfoPageService, public router: Router) {
-  }
+    constructor(
+        private _authService: AuthService,
+        private _router: Router
+    ) {}
 
-  ngOnInit() {
-  }
-
-  searchProduct(text: string) {
-    if (text.length < 1) {
-      return;
+    ngOnInit(): void {
+        this.checkAuth();
     }
-    console.log(text);
-    this.router.navigate(['/search', text]);
-  }
 
+    /**
+     * Check the auth status
+     *
+     * @memberof HeaderComponent
+     */
+    checkAuth() {
+        this._subscription.add(
+            this._authService.isAuth().subscribe((isAuth) => {
+                this.isAuth = isAuth;
+            })
+        );
+    }
+
+    /**
+     * Logout
+     *
+     * @memberof HeaderComponent
+     */
+    logout() {
+        this._authService
+            .logout()
+            .then(() => this._router.navigate(['/']));
+    }
+
+    ngOnDestroy(): void {
+        this._subscription.unsubscribe();
+    }
 }

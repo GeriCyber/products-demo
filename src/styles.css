@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -43,4 +46,27 @@
 svg path,
 svg rect{
   fill: black;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.py-20 {
+  padding: 20px 0;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #202020;
+  width: 180px;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
 }

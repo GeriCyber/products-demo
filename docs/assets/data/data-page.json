@@ -1,11 +1,9 @@
 {
-  "titulo": "Portfolio",
+  "titulo": "Products",
   "subtitulo": "DEMO",
   "email": "gericyber@ggmail.com",
   "nombre_corto": "GERICYBER",
-  "pagina_autor": "https://gericyber.github.io/Portafolio",
-  "facebook": "https://facebook.com/gericyber",
+  "pagina_autor": "https://gericyber.github.io",
   "twitter": "https://twitter.com/gericyber",
-  "instagram": "https://instagram.com/gericyber",
   "equipo_trabajo": []
 }

@@ -1,20 +1,47 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AboutComponent } from './pages/about/about.component';
-import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/guards/auth.guard';
+import { NoAuthGuard } from './auth/guards/no-auth.guard';
+import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './pages/item/item.component';
-import { SearchComponent } from './pages/search/search.component';
+import { ProductCreateComponent } from './products/views/product-create/product-create.component';
+import { ProductEditComponent } from './products/views/product-edit/product-edit.component';
+import { ProductsListComponent } from './products/views/products-list/products-list.component';
 
 const routes: Routes = [
-  { path: 'home', component: PortfolioComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'item/:id', component: ItemComponent },
-  { path: 'search/:text', component: SearchComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
+    { path: 'home', component: HomeComponent },
+    {
+        path: 'login',
+        component: LoginComponent,
+        canActivate: [NoAuthGuard],
+    },
+    {
+        path: 'products',
+        component: ProductsListComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'products/create-product',
+        component: ProductCreateComponent,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'products/edit-product/:id',
+        component: ProductEditComponent,
+        canActivate: [AuthGuard],
+    },
+    { path: 'item/:id', component: ItemComponent },
+    { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' })],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes, {
+            useHash: true,
+            relativeLinkResolution: 'legacy',
+        }),
+    ],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

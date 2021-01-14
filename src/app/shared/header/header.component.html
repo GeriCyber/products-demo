@@ -1,5 +1,9 @@
-<header class="ae-container-fluid ae-container-fluid--full rk-header" *ngIf="infoService.cargada">
-    <input type="checkbox" id="mobile-menu" class="rk-mobile-menu">
+<header *ngIf="isAuth !== null"
+  class="ae-container-fluid ae-container-fluid--full rk-header">
+    <input
+      type="checkbox"
+      id="mobile-menu"
+      class="rk-mobile-menu">
     <label for="mobile-menu">
       <svg>
         <use xlink:href="assets/img/symbols.svg#bar"></use>
@@ -13,27 +17,44 @@
     </label>
     <div class="ae-container-fluid rk-topbar">
       <h1 class="rk-logo">
-        <a [routerLink]="['home']">{{infoService.info.titulo}}
-          <sup>{{infoService.info.subtitulo}}</sup>
+        <a [routerLink]="['home']">Products
+          <sup>DEMO</sup>
         </a>
       </h1>
       <nav class="rk-navigation">
         <ul class="rk-menu">
-          <li routerLinkActive="active" class="rk-menu__item">
-            <a [routerLink]="['home']" class="rk-menu__link">Home</a>
+          <li
+            routerLinkActive="active"
+            class="rk-menu__item">
+            <a
+              [routerLink]="['home']"
+              class="rk-menu__link">Galeria</a>
           </li>
-          <li routerLinkActive="active" class="rk-menu__item">
-            <a [routerLink]="['about']" class="rk-menu__link">About</a>
+          <ng-container *ngIf="isAuth">
+            <li
+            routerLinkActive="active"
+            class="rk-menu__item">
+            <a
+              [routerLink]="['products']"
+              class="rk-menu__link">Editar Productos</a>
+            </li>
+            <li
+              routerLinkActive="active"
+              class="rk-menu__item pointer">
+              <a
+                (click)="logout()"
+                class="rk-menu__link">Cerrar Sesion</a>
+            </li>
+          </ng-container>
+          
+          <li *ngIf="!isAuth"
+            routerLinkActive="active"
+            class="rk-menu__item">
+            <a
+              [routerLink]="['login']"
+              class="rk-menu__link">Iniciar Sesion</a>
           </li>
         </ul>
-        <div class="rk-search">
-          <input (keyup.enter)="searchProduct(text.value)" #text type="text" placeholder="Buscar..." id="urku-search" class="rk-search-field">
-          <label for="urku-search">
-            <svg>
-              <use xlink:href="assets/img/symbols.svg#icon-search"></use>
-            </svg>
-          </label>
-        </div>
       </nav>
     </div>
   </header>

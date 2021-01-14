@@ -77,8 +77,8 @@ body {
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-bottom: 3.3rem;
-  padding-top: 1.8rem;
+  padding-bottom: 1.3rem;
+  padding-top: 0.8rem;
 }
 @media (min-width: 64em) {
   .rk-topbar {
@@ -179,7 +179,7 @@ body {
   height: 24px;
   left: 2.5vw;
   position: absolute;
-  top: 2.7rem;
+  top: 0.7rem;
   width: 16px;
   z-index: 300;
 }
@@ -229,12 +229,13 @@ body {
 }
 
 .rk-footer {
-  margin-top: 10.5rem;
-  margin-bottom: 2rem;
+  margin-top: 50px;
+  background: #212121;
+  padding: 20px 0 10px 0;
 }
 
 .rk-footer__text {
-  color: #787878;
+  color: #FFF;
   font-size: .75rem;
   margin-bottom: .875rem;
 }

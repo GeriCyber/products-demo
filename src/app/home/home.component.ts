@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from 'src/app/services/products.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
     selector: 'app-home',
@@ -7,7 +7,7 @@ import { ProductsService } from 'src/app/services/products.service';
     styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-    constructor(public productService: ProductsService) {}
+    constructor(public productService: ProductService) {}
 
     ngOnInit() {}
 }

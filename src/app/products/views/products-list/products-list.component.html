@@ -1,12 +1,34 @@
 <section
   class="ae-container-fluid rk-main animated fadeIn">
-  <div class="text-center py-20">
+  <div class="title">
     Desde aqui puedes visualizar y modificar tus productos
   </div>
-
-   <div class="text-center">
-     <button
-     type="button"
-     (click)="goToCreateProduct()">Agregar producto</button>
-   </div>
+   
+    <div class="container">
+      <div class="wrap">
+        <div
+          class="card"
+          *ngFor="let product of products">
+          <div
+            class="thumb"
+            [ngStyle]="{backgroundImage:'url(' + product.image + ')'}"></div>
+          <div class="option"></div>
+          <h3>{{product.name}}</h3>
+          <p class="price">{{product.description}}</p>
+          <p class="desc">{{product.longDescription}}</p>
+          <div
+            class="edit"
+            (click)="editProduct()">Editar</div>
+          <div
+            class="delete"
+            (click)="deleteProduct()">Eliminar</div>
+        </div>
+    </div>
+    </div>
 </section>
+
+<button
+  (click)="goToCreateProduct()"
+  class="float-button">
+  +
+</button>

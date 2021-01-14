@@ -1,0 +1,119 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+}
+
+.wrap .card {
+    width: 30%;
+    height: auto;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05),
+    0 5px 5px 0 rgba(0, 0, 0, 0.05);
+    float: left;
+    position: relative;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin: 50px 10px 0 10px ;
+}
+
+.wrap {
+    margin-top: 50px;
+    width: 85%;
+}
+
+.wrap .card .thumb {
+    width: 90%;
+    height: 150px;
+    background: #000;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 50%;
+    top: -10%;
+    transform: translateX(-50%);
+    z-index: 10;
+    transition: 0.3s cubic-bezier(0.67, -0.12, 0.45, 1.5);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05),
+    0 5px 5px 0 rgba(0, 0, 0, 0.05);
+}
+
+.wrap .card .option {
+    width: 60%;
+    height: 30px;
+    margin: 90px auto 0 auto;
+}
+
+.wrap .card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 20px;
+    color: #202020;
+    opacity: 0.6;
+}
+
+.wrap .card .price {
+    font-size: 14px;
+    font-weight: 700;
+    color: #4d4d4d;
+}
+
+.wrap .card .desc {
+    margin: 15px 0;
+    font-size: 13px;
+    line-height: 20px;
+    opacity: 0.8;
+}
+
+.wrap .card .edit,
+.wrap .card .delete {
+    width: 48%;
+    height: 30px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: 0.3s linear;
+}
+
+.wrap .card .edit,
+.wrap .card .delete {
+    line-height: 30px;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+}
+
+.wrap .card .edit {
+    float: left;
+    background: #202020;
+}
+
+.wrap .card .edit:hover {
+    background: #202020;
+}
+
+.wrap .card .delete {
+    float: right;
+    background: #e63d3a;
+}
+
+.wrap .card .delete:hover {
+    background: #e63d3a;
+}
+
+@media screen and (max-width: 480px) {
+    .wrap .card {
+        width: 100%;
+    }
+
+    .wrap .card:nth-child(3) {
+        margin-bottom: 20px;
+    }
+}

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Product } from '../../../shared/models/product.interface';
 
 @Component({
     selector: 'app-products-list',
@@ -7,9 +8,18 @@ import { Router } from '@angular/router';
     styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent {
-    constructor(private _router: Router) {}
+    products: Product[] = this._activatedRoute.snapshot.data.products;
+
+    constructor(
+        private _router: Router,
+        private _activatedRoute: ActivatedRoute
+    ) {}
 
     goToCreateProduct() {
         this._router.navigate(['/products/create-product']);
     }
+
+    editProduct() {}
+
+    deleteProduct() {}
 }

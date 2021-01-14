@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './pages/item/item.component';
+import { ProductsResolver } from './products/resolvers/products.resolver';
 import { ProductCreateComponent } from './products/views/product-create/product-create.component';
 import { ProductEditComponent } from './products/views/product-edit/product-edit.component';
 import { ProductsListComponent } from './products/views/products-list/products-list.component';
@@ -37,7 +38,7 @@ import { HeaderComponent } from './shared/header/header.component';
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule,
     ],
-    providers: [InfoPageService],
+    providers: [InfoPageService, ProductsResolver],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

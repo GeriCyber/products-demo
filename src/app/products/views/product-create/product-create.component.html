@@ -3,18 +3,30 @@
   <div class="create-page">
     <div class="form">
       <form
+        novalidate
+        autocomplete="off"
+        [formGroup]="productForm"
+        (ngSubmit)="submitForm()"
         class="create-form">
         <input
+          formControlName="name"
           type="text"
           placeholder="Nombre del producto" />
         <input
-          type="password"
+          formControlName="description"
+          type="text"
           placeholder="Descripción corta"/>
-          <textarea
+        <textarea
+          formControlName="longDescription"
           placeholder="Descripción larga"></textarea>
         <button
-          type="button">Crear Producto</button>
+          (click)="submitForm()"
+          type="button">
+          <span *ngIf="!attempt; else loading">Crear Producto</span>
+        </button>
       </form>
     </div>
   </div>
 </section>
+
+<ng-template #loading>Creando...</ng-template>

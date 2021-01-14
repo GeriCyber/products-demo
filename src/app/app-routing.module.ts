@@ -5,6 +5,7 @@ import { NoAuthGuard } from './auth/guards/no-auth.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './pages/item/item.component';
+import { ProductsResolver } from './products/resolvers/products.resolver';
 import { ProductCreateComponent } from './products/views/product-create/product-create.component';
 import { ProductEditComponent } from './products/views/product-edit/product-edit.component';
 import { ProductsListComponent } from './products/views/products-list/products-list.component';
@@ -20,6 +21,9 @@ const routes: Routes = [
         path: 'products',
         component: ProductsListComponent,
         canActivate: [AuthGuard],
+        resolve: {
+            products: ProductsResolver,
+        },
     },
     {
         path: 'products/create-product',

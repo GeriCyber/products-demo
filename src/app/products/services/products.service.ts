@@ -33,4 +33,11 @@ export class ProductsService {
             .doc(productId)
             .update(product);
     }
+
+    deleteProduct(productId: string): Promise<any> {
+        return this._afDB
+            .collection('products')
+            .doc(productId)
+            .delete();
+    }
 }

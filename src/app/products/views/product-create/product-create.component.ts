@@ -64,7 +64,7 @@ export class ProductCreateComponent implements OnInit {
             })
             .catch(() => {
                 Swal.fire(
-                    'Ocurrio un error, por favor intenta nuevamente'
+                    'Ocurrió un error, por favor intenta nuevamente'
                 );
                 this.attempt = false;
             });

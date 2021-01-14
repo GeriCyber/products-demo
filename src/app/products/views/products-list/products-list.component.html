@@ -8,7 +8,7 @@
       <div class="wrap">
         <div
           class="card"
-          *ngFor="let product of products">
+          *ngFor="let product of products; let index= index">
           <div
             class="thumb"
             [ngStyle]="{backgroundImage:'url(' + product.image + ')'}"></div>
@@ -21,11 +21,17 @@
             (click)="editProduct(product.id)">Editar</div>
           <div
             class="delete"
-            (click)="deleteProduct()">Eliminar</div>
+            (click)="deleteProduct(product.id, index)">
+            <span *ngIf="!product.attempt; else loading">Eliminar</span>
+          </div>
         </div>
     </div>
     </div>
 </section>
+
+<ng-template #loading>
+  Eliminando...
+</ng-template>
 
 <button
   (click)="goToCreateProduct()"

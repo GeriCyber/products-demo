@@ -48,6 +48,7 @@ const routes: Routes = [
         RouterModule.forRoot(routes, {
             useHash: true,
             relativeLinkResolution: 'legacy',
+            scrollPositionRestoration: 'enabled',
         }),
     ],
     exports: [RouterModule],

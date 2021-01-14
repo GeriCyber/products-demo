@@ -10,4 +10,5 @@ export interface Product {
     description?: string;
     longDescription?: string;
     image?: string;
+    attempt?: boolean;
 }

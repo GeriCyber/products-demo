@@ -66,10 +66,9 @@ export class ProductEditComponent implements OnInit {
                     .navigate(['products'])
                     .then(() => (this.attempt = false));
             })
-            .catch((error) => {
-                console.log(error);
+            .catch(() => {
                 Swal.fire(
-                    'Ocurrio un error, por favor intenta nuevamente'
+                    'Ocurrió un error, por favor intenta nuevamente'
                 );
                 this.attempt = false;
             });

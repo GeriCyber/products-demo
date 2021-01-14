@@ -22,4 +22,15 @@ export class ProductsService {
     getAllProducts(): Observable<DocumentChangeAction<any>[]> {
         return this._afDB.collection('products').snapshotChanges();
     }
+
+    getProduct(productId: string): Observable<any> {
+        return this._afDB.collection('products').doc(productId).get();
+    }
+
+    editProduct(productId: string, product: Product): Promise<any> {
+        return this._afDB
+            .collection('products')
+            .doc(productId)
+            .update(product);
+    }
 }

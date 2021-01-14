@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Product } from '../../../shared/models/product.interface';
 import { ProductsService } from '../../services/products.service';
 
@@ -24,11 +25,19 @@ export class ProductCreateComponent implements OnInit {
         this.productForm = this._createProductForm();
     }
 
+    backToProducts() {
+        this._router.navigate(['products']);
+    }
+
     /**
      * Handle form data to create new product
+     *
+     * @returns
+     * @memberof ProductCreateComponent
      */
     submitForm() {
         if (this.productForm.invalid) {
+            Swal.fire('El formulario es inválido');
             return;
         }
 
@@ -53,8 +62,10 @@ export class ProductCreateComponent implements OnInit {
                     .navigate(['products'])
                     .then(() => (this.attempt = false));
             })
-            .catch((error) => {
-                console.error(error);
+            .catch(() => {
+                Swal.fire(
+                    'Ocurrio un error, por favor intenta nuevamente'
+                );
                 this.attempt = false;
             });
     }

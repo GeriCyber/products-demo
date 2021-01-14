@@ -1,20 +1,44 @@
 <section
   class="ae-container-fluid rk-main animated fadeIn">
   <div class="create-page">
+    <h3 class="text-center mb-20">Editar Producto</h3>
     <div class="form">
+      <div class="ae-grid">
+        <div
+          class="ae-grid__item item-lg-12 text-center mb-20">
+          <img width="150" [src]="product.image"></div>
+      </div>
       <form
+        novalidate
+        autocomplete="off"
+        [formGroup]="productForm"
+        (ngSubmit)="submitForm()"
         class="create-form">
         <input
+          formControlName="name"
           type="text"
           placeholder="Nombre del producto" />
         <input
-          type="password"
+          formControlName="description"
+          type="text"
           placeholder="Descripción corta"/>
-          <textarea
+        <textarea
+          formControlName="longDescription"
           placeholder="Descripción larga"></textarea>
         <button
-          type="button">Crear Producto</button>
+          (click)="submitForm()"
+          type="button">
+          <span *ngIf="!attempt; else loading">Editar Producto</span>
+        </button>
       </form>
     </div>
   </div>
 </section>
+
+<ng-template #loading>Editando...</ng-template>
+
+<button
+  (click)="backToProducts()"
+  class="float-button">
+  <img src="assets/img/back.svg" width="25">
+</button>

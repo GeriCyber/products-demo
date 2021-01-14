@@ -5,6 +5,7 @@ export interface Product {
     titulo?: string;
     url?: string;
 
+    id?: string;
     name?: string;
     description?: string;
     longDescription?: string;

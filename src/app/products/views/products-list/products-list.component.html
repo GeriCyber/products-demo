@@ -18,7 +18,7 @@
           <p class="desc">{{product.longDescription}}</p>
           <div
             class="edit"
-            (click)="editProduct()">Editar</div>
+            (click)="editProduct(product.id)">Editar</div>
           <div
             class="delete"
             (click)="deleteProduct()">Eliminar</div>
@@ -30,5 +30,5 @@
 <button
   (click)="goToCreateProduct()"
   class="float-button">
-  +
+  <img src="assets/img/add.svg" width="25">
 </button>

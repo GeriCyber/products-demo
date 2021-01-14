@@ -19,7 +19,9 @@ export class ProductsListComponent {
         this._router.navigate(['/products/create-product']);
     }
 
-    editProduct() {}
+    editProduct(productId: string) {
+        this._router.navigate(['/products/edit-product', productId]);
+    }
 
     deleteProduct() {}
 }

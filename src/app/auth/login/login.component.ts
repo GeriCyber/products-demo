@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-login',
@@ -30,6 +31,7 @@ export class LoginComponent {
             this.userControl.invalid ||
             this.passwordControl.invalid
         ) {
+            Swal.fire('Debes ingresar usuario y contraseña');
             return;
         }
 
@@ -40,8 +42,8 @@ export class LoginComponent {
                 this._router.navigate(['/']);
                 this.attempt = false;
             })
-            .catch((error) => {
-                console.error(error);
+            .catch(() => {
+                Swal.fire('Usuario o contraseña inválida');
                 this.attempt = false;
             });
     }

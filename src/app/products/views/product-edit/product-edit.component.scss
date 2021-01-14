@@ -1,6 +1,5 @@
 .create-page {
     width: 100%;
-    padding: 2% 0 0;
     margin: auto;
 }
 
@@ -95,4 +94,10 @@ button {
 
 .container .info span .fa {
     color: #EF3B3A;
+}
+
+img {
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05),
+    0 5px 5px 0 rgba(0, 0, 0, 0.05);
 }

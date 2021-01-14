@@ -1,6 +1,7 @@
 <section
   class="ae-container-fluid rk-main animated fadeIn">
   <div class="create-page">
+    <h3 class="text-center mb-20">Crear Producto</h3>
     <div class="form">
       <form
         novalidate
@@ -30,3 +31,9 @@
 </section>
 
 <ng-template #loading>Creando...</ng-template>
+
+<button
+  (click)="backToProducts()"
+  class="float-button">
+  <img src="assets/img/back.svg" width="25">
+</button>

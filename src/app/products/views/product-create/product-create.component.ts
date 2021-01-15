@@ -8,7 +8,7 @@ import { ProductsService } from '../../services/products.service';
 @Component({
     selector: 'app-product-create',
     templateUrl: './product-create.component.html',
-    styleUrls: ['./product-create.component.scss'],
+    styleUrls: ['./product-create.component.css'],
 })
 export class ProductCreateComponent implements OnInit {
     productForm: FormGroup;

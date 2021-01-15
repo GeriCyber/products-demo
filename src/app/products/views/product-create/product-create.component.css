@@ -101,8 +101,19 @@ img {
         0 5px 5px 0 rgba(0, 0, 0, 0.05);
 }
 
+.section {
+    height: 100vh !important;
+    display: flex !important;
+}
+
 @media screen and (max-width: 768px) {
     .form {
         width: 90% !important;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .section {
+        height: auto !important;
     }
 }

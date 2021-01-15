@@ -4,15 +4,21 @@ import { AuthGuard } from './auth/guards/auth.guard';
 import { NoAuthGuard } from './auth/guards/no-auth.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
-import { ItemComponent } from './pages/item/item.component';
 import { ProductResolver } from './products/resolvers/product.resolver';
 import { ProductsResolver } from './products/resolvers/products.resolver';
 import { ProductCreateComponent } from './products/views/product-create/product-create.component';
+import { ProductDetailsComponent } from './products/views/product-details/product-details.component';
 import { ProductEditComponent } from './products/views/product-edit/product-edit.component';
 import { ProductsListComponent } from './products/views/products-list/products-list.component';
 
 const routes: Routes = [
-    { path: 'home', component: HomeComponent },
+    {
+        path: 'home',
+        component: HomeComponent,
+        resolve: {
+            products: ProductsResolver,
+        },
+    },
     {
         path: 'login',
         component: LoginComponent,
@@ -24,6 +30,13 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         resolve: {
             products: ProductsResolver,
+        },
+    },
+    {
+        path: 'product/:productId',
+        component: ProductDetailsComponent,
+        resolve: {
+            product: ProductResolver,
         },
     },
     {
@@ -39,7 +52,6 @@ const routes: Routes = [
             product: ProductResolver,
         },
     },
-    { path: 'item/:id', component: ItemComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];
 

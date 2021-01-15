@@ -19,6 +19,10 @@
           type="text"
           placeholder="Nombre del producto" />
         <input
+          formControlName="price"
+          type="number"
+          placeholder="Precio" />
+        <input
           formControlName="description"
           type="text"
           placeholder="Descripción corta"/>
@@ -27,6 +31,7 @@
           placeholder="Descripción larga"></textarea>
         <button
           (click)="submitForm()"
+          [disabled]="attempt"
           type="button">
           <span *ngIf="!attempt; else loading">Editar Producto</span>
         </button>
@@ -35,7 +40,7 @@
   </div>
 </section>
 
-<ng-template #loading>Editando...</ng-template>
+<ng-template #loading>Guardando...</ng-template>
 
 <button
   (click)="backToProducts()"

@@ -1,4 +1,4 @@
-<header *ngIf="isAuth !== null"
+<header
   class="ae-container-fluid ae-container-fluid--full rk-header">
     <input
       type="checkbox"
@@ -28,7 +28,7 @@
             class="rk-menu__item">
             <a
               [routerLink]="['home']"
-              class="rk-menu__link">Galeria</a>
+              class="rk-menu__link">Galería de Productos</a>
           </li>
           <ng-container *ngIf="isAuth">
             <li

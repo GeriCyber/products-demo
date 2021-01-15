@@ -1273,7 +1273,7 @@ body {
   -webkit-align-items: flex-end;
   -ms-flex-align: end;
           align-items: flex-end;
-  height: 100vh;
+  height: 300px;
   padding-bottom: 1.5rem;
   width: 100%;
 }
@@ -1336,6 +1336,7 @@ body {
 .item-inside__meta .rk-portfolio-category {
   position: relative;
   z-index: 2;
+  color: #fff;
 }
 
 .inner-box-1 {
@@ -1351,9 +1352,7 @@ body {
 }
 
 .item-inside-1 {
-  /* background-image: url("../img/project-1.jpg"); */
-  background-position: 50% 100%;
-  background-size: 350%;
+  background-size: cover !important;
 }
 /* @media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
   .item-inside-1 {

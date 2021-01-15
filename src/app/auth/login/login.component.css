@@ -88,3 +88,14 @@
 .container .info span .fa {
     color: #EF3B3A;
 }
+
+.section {
+    height: 100vh !important;
+    display: flex !important;
+}
+
+@media screen and (max-width: 768px) {
+    .login-page {
+        width: 90% !important;
+    }
+}

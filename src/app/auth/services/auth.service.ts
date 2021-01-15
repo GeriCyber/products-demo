@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    constructor(
-        private afAuth: AngularFireAuth,
-        private router: Router
-    ) {}
+    authSubject = new BehaviorSubject<boolean>(false);
+    constructor(private afAuth: AngularFireAuth) {}
 
     /**
      * Login with Firebase
@@ -34,7 +31,9 @@ export class AuthService {
      * @memberof AuthService
      */
     logout(): Promise<any> {
-        return this.afAuth.signOut();
+        return this.afAuth
+            .signOut()
+            .then(() => this.authSubject.next(false));
     }
 
     /**
@@ -47,8 +46,10 @@ export class AuthService {
         return this.afAuth.authState.pipe(
             map((fbUser) => {
                 if (fbUser) {
+                    this.authSubject.next(true);
                     return true;
                 } else {
+                    this.authSubject.next(false);
                     return false;
                 }
             })

@@ -1,0 +1,22 @@
+<section
+  class="ae-container-fluid ae-container-fluid--full">
+  <header
+    [ngStyle]="{backgroundImage:'url(' + background + ')'}"
+    class="rk-portfolio-cover item-inside-1">
+    <div class="item-inside__meta">
+      <h1 class="ae-u-bolder rk-portfolio-title ">{{product.name}}</h1>
+      <p class="ae-theta rk-portfolio-category ">{{product.description}}</p>
+    </div>
+  </header>
+  <div class="ae-container-fluid ae-container-fluid--inner rk-portfolio--inner mt-50">
+    <div class="ae-grid ae-grid--collapse">
+      <div class="ae-grid__item item-lg-8">
+        <img [src]="product.image"></div>
+      <div class="ae-grid__item item-lg-3 item-lg--offset-1 au-lg-ptp-1">
+        <p>{{product.longDescription}}</p>
+        <p>Precio: <span class="ae-u-bolder">{{product.price}}$</span></p>
+      </div>
+    </div>
+  </div>
+
+</section>

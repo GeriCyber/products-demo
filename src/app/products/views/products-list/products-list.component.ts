@@ -7,7 +7,7 @@ import { ProductsService } from '../../services/products.service';
 @Component({
     selector: 'app-products-list',
     templateUrl: './products-list.component.html',
-    styleUrls: ['./products-list.component.scss'],
+    styleUrls: ['./products-list.component.css'],
 })
 export class ProductsListComponent {
     products: Product[] = this._activatedRoute.snapshot.data.products;

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { InfoPageService } from './services/info-page.service';
+import { delay } from 'rxjs/operators';
+import { AuthService } from './auth/services/auth.service';
 
 @Component({
     selector: 'app-root',
@@ -7,6 +8,10 @@ import { InfoPageService } from './services/info-page.service';
     styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-    title = 'portfolioDemo';
-    constructor(public infoService: InfoPageService) {}
+    splashScreen = true;
+    constructor(private _authService: AuthService) {
+        this._authService.authSubject
+            .pipe(delay(2000))
+            .subscribe(() => (this.splashScreen = false));
+    }
 }

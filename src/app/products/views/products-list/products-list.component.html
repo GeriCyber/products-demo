@@ -1,21 +1,21 @@
 <section
-  class="ae-container-fluid rk-main animated fadeIn">
+  class="ae-container-fluid rk-main">
   <div class="title">
-    Desde aquí puedes visualizar y modificar los productos
+    Desde aquí puedes crear, editar y eliminar productos
   </div>
    
     <div class="container">
       <div class="wrap">
         <div
-          class="card"
+          class="card animated fadeIn"
           *ngFor="let product of products; let index= index">
           <div
             class="thumb"
             [ngStyle]="{backgroundImage:'url(' + product.image + ')'}"></div>
           <div class="option"></div>
           <h3>{{product.name}}</h3>
-          <p class="price">{{product.description}}</p>
-          <p class="desc">{{product.longDescription}}</p>
+          <p class="price">Precio: {{product.price}}$</p>
+          <p class="desc">{{product.description}}</p>
           <div
             class="edit"
             (click)="editProduct(product.id)">Editar</div>

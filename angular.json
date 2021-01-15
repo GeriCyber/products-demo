@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "portfolioDemo": {
+    "productsDemo": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "aot": true,
-            "outputPath": "dist/portfolioDemo",
+            "outputPath": "dist/productsDemo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -61,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "portfolioDemo:build"
+            "browserTarget": "productsDemo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "portfolioDemo:build:production"
+              "browserTarget": "productsDemo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "portfolioDemo:build"
+            "browserTarget": "productsDemo:build"
           }
         },
         "test": {
@@ -106,7 +106,7 @@
         }
       }
     },
-    "portfolioDemo-e2e": {
+    "productsDemo-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -115,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "portfolioDemo:serve"
+            "devServerTarget": "productsDemo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "portfolioDemo:serve:production"
+              "devServerTarget": "productsDemo:serve:production"
             }
           }
         },
@@ -135,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "portfolioDemo"
+  "defaultProject": "productsDemo"
 }

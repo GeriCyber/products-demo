@@ -60,6 +60,22 @@ svg rect{
     margin-bottom: 20px;
 }
 
+.mt-50 {
+  margin-top: 50px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
